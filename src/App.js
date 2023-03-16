@@ -7,9 +7,6 @@ import { useState } from "react";
 function App() {
 	const [followers, setFollowers] = useState('');
 
-	onBtnClick(){
-		
-	}
   return (
     <div className="app">
       <header className="header">
