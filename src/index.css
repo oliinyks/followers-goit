@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Montserrat";
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ebd8ff;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
