@@ -2,17 +2,26 @@ import logo from "./img/logo.svg";
 import content from "./img/content-picture.png";
 import user from "./img/user.png";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [followers, setFollowers] = useState(100500);
-  const [isFollow, setIsFollow] = useState(false);
+  const [followers, setFollowers] = useState(
+    () => JSON.parse(window.localStorage.getItem("followerCount")) ?? 100500
+  );
+  const [isFollow, setIsFollow] = useState(
+    () => JSON.parse(window.localStorage.getItem("isFollowing")) ?? false
+  );
 
-  const onBtnClick = (e) => {
+  useEffect(() => {
+    localStorage.setItem("isFollowing", JSON.stringify(isFollow));
+    localStorage.setItem("followerCount", JSON.stringify(followers));
+  }, [isFollow, followers]);
+
+  const onBtnClick = () => {
     if (isFollow) {
-      setFollowers((prev) => (prev -= 1));
+      setFollowers((prev) => prev - 1);
     } else {
-      setFollowers((prev) => (prev += 1));
+      setFollowers((prev) => prev + 1);
     }
     setIsFollow((current) => !current);
   };
